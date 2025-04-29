@@ -102,7 +102,7 @@
 			</plugin>
 		
 		</plugins>
-			<finalName>hostpital-managment</finalName>
+			<finalName>hospital-managment</finalName>
 	</build>
 
 </project>
