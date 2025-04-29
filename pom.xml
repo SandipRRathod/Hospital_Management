@@ -100,7 +100,9 @@
 					</excludes>
 				</configuration>
 			</plugin>
+		
 		</plugins>
+			<finalName>hostpital-managment</finalName>
 	</build>
 
 </project>
