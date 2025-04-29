@@ -7,4 +7,5 @@ COPY . .
 RUN chmod +x mvnw
 RUN ./mvnw clean package -DskipTests
 
-CMD ["java", "-jar", "target/hospital-managment.jar"]
+CMD ["java", "-jar", "/app/target/hospital-managment.jar"]
+
