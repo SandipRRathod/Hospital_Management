@@ -2,8 +2,9 @@ FROM openjdk:21
 
 WORKDIR /app
 
-# Copy the already-built jar into the image
-COPY target/hospital-managment.jar app.jar
+COPY . .
 
-# Run the app
-CMD ["java", "-jar", "app.jar"]
+RUN chmod +x mvnw
+RUN ./mvnw clean package -DskipTests
+
+CMD ["java", "-jar", "target/hospital-managment.jar"]
