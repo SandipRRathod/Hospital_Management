@@ -1,13 +1,16 @@
 FROM openjdk:21
 
-# Expose port
-EXPOSE 8080
-
-# Set the working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# Copy the JAR file to the container
-COPY target/hostpital-managment.jar app.jar
+# Copy everything (including pom.xml, src, mvnw, etc.)
+COPY . .
 
-# Run the application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Build the app
+RUN ./mvnw clean package -DskipTests
+
+# Copy the built jar (update the jar name if needed)
+COPY target/hospital-managment.jar app.jar
+
+# Run the app
+CMD ["java", "-jar", "app.jar"]
