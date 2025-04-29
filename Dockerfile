@@ -1,10 +1,10 @@
-FROM openjdk:21 AS build
+FROM openjdk:21
 
 COPY . .
 
 RUN mvn clean package -DskipTests
 
-COPY --from=build /target/hospital-managment.jar app.jar
+COPY target/hospital-managment.jar app.jar
 
 EXPOSE 8080
 
