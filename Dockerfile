@@ -1,11 +1,12 @@
-FROM openjdk:19
-
-WORKDIR /app
+FROM openjdk:21 AS build
 
 COPY . .
 
-RUN chmod +x mvnw
-RUN ./mvnw clean package -DskipTests
+RUN mvn clean package -DskipTests
 
-CMD ["java", "-jar", "/app/target/hospital-managment.jar"]
+COPY --from=build/target/hospital-managment.jar app.jar
+
+EXPOSE 8080
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
 
