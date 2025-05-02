@@ -23,7 +23,7 @@ public class Service {
 	}
 	
 	public Page<Doctors> getAllDoc(int no) {
-	return repository.findAll(PageRequest.of(no, 5,Sort.by("id").ascending())));
+	return repository.findAll(PageRequest.of(no, 5));
 	}
 
 	public Doctors updateDoctor(Doctors doctor) {
